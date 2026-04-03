@@ -10,18 +10,10 @@ use App\Http\Controllers\Customer\Auth\SocialAuthController;
 use App\Http\Controllers\Customer\PaymentController;
 use App\Http\Controllers\Customer\RewardPointController;
 use App\Http\Controllers\Customer\SystemController;
-<<<<<<< HEAD
-use App\Http\Controllers\Payment_Methods\AirtelPaymentController;
-=======
->>>>>>> e1050cd3f1852ac01088629e5014452cb0052bd6
 use App\Http\Controllers\Payment_Methods\BkashPaymentController;
 use App\Http\Controllers\Payment_Methods\FlutterwaveV3Controller;
 use App\Http\Controllers\Payment_Methods\LiqPayController;
 use App\Http\Controllers\Payment_Methods\MercadoPagoController;
-<<<<<<< HEAD
-use App\Http\Controllers\Payment_Methods\MtnPaymentController;
-=======
->>>>>>> e1050cd3f1852ac01088629e5014452cb0052bd6
 use App\Http\Controllers\Payment_Methods\PaymobController;
 use App\Http\Controllers\Payment_Methods\PaypalPaymentController;
 use App\Http\Controllers\Payment_Methods\PaystackController;
@@ -501,20 +493,3 @@ if (!$isGatewayPublished) {
 
         //AIRTEL
         Route::group(['prefix' => 'airtel', 'as' => 'airtel.'], function () {
-            Route::get('pay', [AirtelPaymentController::class, 'index'])->name('pay');
-            Route::get('callback', [AirtelPaymentController::class, 'handleGatewayCallback'])->name('callback');
-            Route::post('verify', [AirtelPaymentController::class, 'verifyTransaction'])->name('verify');
-            Route::get('cancel', [AirtelPaymentController::class, 'cancel'])->name('cancel');
-        });
-
-        //MTN
-        Route::group(['prefix' => 'mtn', 'as' => 'mtn.'], function () {
-            Route::get('pay', [MtnPaymentController::class, 'index'])->name('pay');
-            Route::get('callback', [MtnPaymentController::class, 'handleGatewayCallback'])->name('callback');
-            Route::post('check-status', [MtnPaymentController::class, 'checkStatus'])->name('check-status');
-            Route::get('cancel', [MtnPaymentController::class, 'cancel'])->name('cancel');
-        });
-=======
->>>>>>> e1050cd3f1852ac01088629e5014452cb0052bd6
-    });
-}
