@@ -2,11 +2,19 @@
 
 namespace App\Providers;
 
+<<<<<<< HEAD
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\RateLimiter;
 use App\Http\Requests\Request;
 use Illuminate\Cache\RateLimiting\Limit;
+=======
+use App\Http\Requests\Request;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Route;
+>>>>>>> e1050cd3f1852ac01088629e5014452cb0052bd6
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -36,6 +44,10 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+<<<<<<< HEAD
+=======
+        $this->configureRateLimiting();
+>>>>>>> e1050cd3f1852ac01088629e5014452cb0052bd6
     }
 
     /**
@@ -45,8 +57,21 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+<<<<<<< HEAD
         $this->mapInstallRoutes();
         //$this->mapUpdateRoutes();
+=======
+        $this->mapApiRoutes();
+        $this->mapApiv2Routes();
+        $this->mapApiv3Routes();
+
+        //$this->mapInstallRoutes();
+        //$this->mapUpdateRoutes();
+
+        $this->mapBetaAdminRoutes();
+        $this->mapBetaVendorRoutes();
+        $this->mapBetaWebRoutes();
+>>>>>>> e1050cd3f1852ac01088629e5014452cb0052bd6
     }
 
     /**
@@ -102,6 +127,7 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/rest_api/v3/seller.php'));
     }
 
+<<<<<<< HEAD
     protected function mapApiv4Routes()
     {
         Route::prefix('api')
@@ -110,6 +136,8 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/rest_api/v4/api.php'));
     }
 
+=======
+>>>>>>> e1050cd3f1852ac01088629e5014452cb0052bd6
     /**
      * Define the "beta" routes for the application.
      *
@@ -132,7 +160,11 @@ class RouteServiceProvider extends ServiceProvider
     }
     protected function mapBetaWebRoutes(): void
     {
+<<<<<<< HEAD
         Route::middleware('web')
+=======
+        Route::middleware(['web', 'logUserBrowsingNavigation'])
+>>>>>>> e1050cd3f1852ac01088629e5014452cb0052bd6
             ->namespace($this->namespace)
             ->group(base_path('routes/web/routes.php'));
     }
